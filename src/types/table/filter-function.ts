@@ -1,0 +1,1 @@
+export type FilterFunction = (id: string, value: string) => void;
