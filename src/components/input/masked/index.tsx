@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useLayoutEffect,
   useState,
+  FocusEvent,
 } from "react";
 import {
   countFocusPosition,
@@ -22,14 +23,13 @@ export default (props: MaskedInputProps) => {
   const ref = useRef<HTMLInputElement>(null);
   const [pureValue, setPureValue] = useState(props.initial);
 
-  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const onKeyDown = function <T>(e: React.KeyboardEvent<T>) {
     e.preventDefault();
     let newValue = handleNewKey(e.key, pureValue, props.format);
     setPureValue(newValue);
   };
 
   const moveCursorTo = (pos: number, ref: RefObject<HTMLInputElement>) => {
-    console.log(ref.current);
     ref.current && ref.current.setSelectionRange(pos, pos);
   };
 
@@ -42,18 +42,31 @@ export default (props: MaskedInputProps) => {
     props.setValue && props.setValue(pureValue);
   }, [pureValue, props.setValue]);
 
+  useEffect(() => {
+    console.log("mounting masked component");
+    props.setRef && props.setRef(ref);
+  }, []);
+
   useLayoutEffect(() => {
     focus();
   });
 
   const value = formatValue(pureValue, props.placeholder, props.mask);
-  const onClick = (e: MouseEvent<HTMLInputElement>) => {
+
+  const onClick = function <T>(e: MouseEvent<T>) {
     props.onClick && props.onClick(e);
     focus();
   };
+
+  const onFocus = function <T>(e: FocusEvent<T>) {
+    props.onFocus && props.onFocus(e);
+    focus();
+  };
+
   return (
     <Input
       valid={props.valid}
+      type="text"
       value={value}
       innerRef={ref}
       title={props.title}
@@ -62,10 +75,8 @@ export default (props: MaskedInputProps) => {
       message={props.message}
       onClick={onClick}
       onChange={props.onChange}
-      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-        onKeyDown(e);
-        props.onKeyDown && props.onKeyDown(e);
-      }}
+      onKeyDown={onKeyDown}
+      onFocus={onFocus}
       style={props.style}
       className={props.className}
       labelStyle={props.labelStyle}

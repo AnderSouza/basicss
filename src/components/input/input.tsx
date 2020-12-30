@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FocusEvent } from "react";
 import { TextInputProps } from "../../types";
 import styled from "styled-components";
 import { commonStyles } from "./../common-styles";
@@ -104,15 +104,22 @@ const Input = (props: TextInputProps) => {
       </StyledLabel>
       <StyledInput
         name={props.name}
-        type="text"
+        type={props.type ? props.type : "text"}
         value={props.value}
         placeholder={props.placeholder}
         valid={props.valid}
         onClick={props.onClick}
         onChange={props.onChange}
+        onKeyUp={props.onKeyUp}
         onKeyDown={props.onKeyDown}
-        onFocus={() => setIsFocused(!isFocused)}
-        onBlur={() => setIsFocused(!isFocused)}
+        onFocus={(e: FocusEvent<any>) => {
+          setIsFocused(!isFocused);
+          props.onFocus && props.onFocus(e);
+        }}
+        onBlur={(e: FocusEvent<any>) => {
+          setIsFocused(!isFocused);
+          props.onBlur && props.onBlur(e);
+        }}
         isFocused={isFocused}
         ref={props.innerRef}
         style={props.style}

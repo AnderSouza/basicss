@@ -7,6 +7,4 @@ export interface RadioInputProps extends BaseProps {
   value: string;
   labelStyle?: CSSProperties;
   labelClassName?: string;
-  onClick?: (e: MouseEvent<HTMLInputElement>) => void;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }

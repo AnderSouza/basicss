@@ -33,9 +33,7 @@ const StyledMenu = commonStyles(
 );
 
 const Menu = (props: BaseProps) => (
-  <StyledMenu style={props.style} className={props.className}>
-    {props.children}
-  </StyledMenu>
+  <StyledMenu {...props}>{props.children}</StyledMenu>
 );
 
 Menu.Item = Item;

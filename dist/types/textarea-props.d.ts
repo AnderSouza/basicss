@@ -1,4 +1,4 @@
-import { CSSProperties, MouseEvent, ChangeEvent } from "react";
+import { CSSProperties } from "react";
 import { BaseProps } from "./base-props";
 export interface TextAreaProps extends BaseProps {
     title: string;
@@ -7,6 +7,6 @@ export interface TextAreaProps extends BaseProps {
     placeholder: string;
     labelStyle?: CSSProperties;
     labelClassName?: string;
-    onClick?: (e: MouseEvent<HTMLTextAreaElement>) => void;
-    onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+    rows?: number;
+    cols?: number;
 }

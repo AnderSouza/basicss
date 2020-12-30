@@ -10,6 +10,4 @@ export interface TextAreaProps extends BaseProps {
   labelClassName?: string;
   rows?: number;
   cols?: number;
-  onClick?: (e: MouseEvent<HTMLTextAreaElement>) => void;
-  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
