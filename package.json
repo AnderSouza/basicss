@@ -1,6 +1,6 @@
 {
   "name": "@andersouza/basicss",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React components with basic CSS. Get the functionality and structure and specify the styles yourself.",
   "main": "dist/index.js",
   "title": "Basicss",
