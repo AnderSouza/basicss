@@ -1,20 +1,18 @@
 # Basicss
 
-![GitHub repo size](https://img.shields.io/github/repo-size/andersouza/basicss?style=for-the-badge) ![GitHub](https://img.shields.io/github/license/andersouza/basicss?style=for-the-badge) ![npm](https://img.shields.io/npm/v/basicss?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/andersouza/basicss?style=for-the-badge) ![GitHub](https://img.shields.io/github/license/andersouza/basicss?style=for-the-badge)![npm (scoped)](https://img.shields.io/npm/v/@andersouza/basicss?style=for-the-badge)
 
 React components with basic CSS. Get the functionality and structure and specify the styles yourself.
+
+**Here's a [live demo](https://andersonsouza.dev/basicss).**
 
 ## :computer: Installation
 
 You can get it through NPM.
 
 ```
-npm install --save basicss
+npm install --save @andersouza/basicss
 ```
-
-## :hammer_and_wrench: Usage
-
-Here's a [live demo](https://andersonsouza.dev) using Storybook.
 
 ## :email: Contact
 
