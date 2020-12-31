@@ -24,7 +24,7 @@ export default (props: MaskedInputProps) => {
   const [pureValue, setPureValue] = useState(props.initial);
 
   const onKeyDown = function <T>(e: React.KeyboardEvent<T>) {
-    e.preventDefault();
+    if (e.key !== "Tab") e.preventDefault();
     let newValue = handleNewKey(e.key, pureValue, props.format);
     setPureValue(newValue);
   };
@@ -43,7 +43,6 @@ export default (props: MaskedInputProps) => {
   }, [pureValue, props.setValue]);
 
   useEffect(() => {
-    console.log("mounting masked component");
     props.setRef && props.setRef(ref);
   }, []);
 
