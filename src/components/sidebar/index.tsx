@@ -2,16 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { commonStyles } from "./../common-styles";
 import { BaseProps } from "./../../types/index";
+import COLORS from "./../../colors";
 
 const StyledItem = styled.div<{ active?: boolean }>`
   cursor: pointer;
-  color: white;
+  color: #444444;
   padding: 10px;
   white-space: nowrap;
   margin: 0;
   font-weight: ${(props) => (props.active ? "bold" : "normal")};
   &:hover {
-    background-color: #999;
+    background-color: ${COLORS.gainsboro};
   }
 `;
 
@@ -20,7 +21,7 @@ const StyledSidebar = commonStyles(
     display: inline-block;
     padding: 1px;
     font-size: 0.9rem;
-    background-color: #777777;
+    background-color: ${COLORS.whitesmoke};
   `
 );
 

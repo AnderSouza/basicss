@@ -77,7 +77,7 @@ const StyledInput = styled.input<StyledInputProps>`
 
 const StyledMessage = styled.div<StyledMessageProps>`
   width: 100%;
-  padding: 8px 10px;
+  padding: 4px 10px;
   color: ${(props) => (props.valid ? "black" : "tomato")};
   font-size: 0.8rem;
 `;

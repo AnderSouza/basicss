@@ -2,6 +2,7 @@ import React, { FocusEvent, MouseEvent, useRef, useState } from "react";
 import { DropdownProps } from "./../../types";
 import styled from "styled-components";
 import { commonStyles } from "./../common-styles";
+import COLORS from "./../../colors";
 
 const Wrapper = commonStyles(
   styled.div`
@@ -14,7 +15,7 @@ type OverlayProps = { isOpen: boolean };
 const Overlay = commonStyles(
   styled.div<OverlayProps>`
     font-size: 0.8rem;
-    background-color: #eeeeee;
+    background-color: ${COLORS.whitesmoke};
     position: absolute;
     display: ${(props) => (props.isOpen ? "block" : "none")};
     padding: 2px 0px;
@@ -27,12 +28,13 @@ const Overlay = commonStyles(
 const Button = styled.button<{ open: boolean }>`
   font-size: 0.8rem;
   padding: 8px;
-  background-color: ${(props) => (props.open ? "#dddddd" : "#eee")};
+  background-color: ${(props) =>
+    props.open ? COLORS.gainsboro : COLORS.whitesmoke};
   outline: none;
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: #ddd;
+    background-color: ${COLORS.gainsboro};
   }
 `;
 
@@ -41,9 +43,9 @@ export const Item = styled.div`
   font-size: 0.8rem;
   white-space: nowrap;
   cursor: pointer;
-  background-color: #eee;
+  background-color: ${COLORS.whitesmoke};
   &:hover {
-    background-color: #dddddd;
+    background-color: ${COLORS.gainsboro};
   }
 `;
 

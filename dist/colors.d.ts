@@ -1,9 +1,15 @@
-export declare const primary = "#4682B4";
-export declare const secondary = "#AAAAAA";
+export declare const primary = "#808080";
+export declare const secondary = "#6495ED";
 export declare const success = "#32CD32";
 export declare const info = "#20B2AA";
 export declare const warning = "#FFA500";
-export declare const error = "#FF0000";
+export declare const error = "#FF4500";
+export declare const gainsboro = "#DCDCDC";
+export declare const whitesmoke = "#F0F0F0";
+export declare const springgreen = "#00FF7F";
+export declare const limegreen = "#20B2AA";
+export declare const darkgray = "#A9A9A9";
+export declare const lightgray = "#D0D0D0";
 declare const _default: {
     primary: string;
     secondary: string;
@@ -11,5 +17,12 @@ declare const _default: {
     info: string;
     warning: string;
     error: string;
+    gainsboro: string;
+    whitesmoke: string;
+    springgreen: string;
+    limegreen: string;
+    darkgray: string;
+    lightgray: string;
+    convertHexToRGBA: (hexColor: string, opacity: number) => string;
 };
 export default _default;

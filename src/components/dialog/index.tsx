@@ -1,10 +1,9 @@
 import React, { MouseEvent } from "react";
-import Button from "./../button/index";
 import { DialogProps } from "./../../types";
 import styled from "styled-components";
 import { commonStyles } from "./../common-styles";
 
-const Fade = commonStyles(
+const Wrapper = commonStyles(
   styled.div<{ open: boolean }>`
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
@@ -16,7 +15,7 @@ const Fade = commonStyles(
   `
 );
 
-const Dialog = styled.div`
+const StyledDialog = styled.div`
   width: 40vw;
   position: fixed;
   left: 50%;
@@ -29,44 +28,32 @@ const Dialog = styled.div`
   font-size: 0.8rem;
 `;
 
-const Actions = styled.div`
+const Body = styled.div``;
+
+const Footer = styled.div`
   width: 100%;
   margin: 10px 0px;
   padding-top: 10px;
-  border-top: solid 1px grey;
 `;
 
-export default (props: DialogProps) => (
-  <Fade
-    onClick={props.onConfirm}
+const Dialog = (props: DialogProps) => (
+  <Wrapper
+    onClick={props.onCancel}
     open={props.open}
-    className={props.fadeClassName}
-    style={props.fadeStyle}
+    className={props.wrapperClassName}
+    style={props.wrapperStyle}
   >
-    <Dialog
+    <StyledDialog
       style={props.style}
       className={props.className}
       onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
     >
       {props.children}
-      <Actions style={props.actionsStyle} className={props.actionsClassName}>
-        <Button
-          variant="filled"
-          color="primary"
-          style={{ marginLeft: "5px", float: "right" }}
-          onClick={props.onConfirm}
-        >
-          OK
-        </Button>
-        <Button
-          color="primary"
-          variant="outlined"
-          style={{ float: "right" }}
-          onClick={props.onCancel}
-        >
-          Cancelar
-        </Button>
-      </Actions>
-    </Dialog>
-  </Fade>
+    </StyledDialog>
+  </Wrapper>
 );
+
+Dialog.Body = Body;
+Dialog.Footer = Footer;
+
+export default Dialog;

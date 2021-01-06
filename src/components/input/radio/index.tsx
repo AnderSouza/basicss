@@ -2,6 +2,7 @@ import React from "react";
 import { RadioInputProps } from "./../../../types";
 import styled from "styled-components";
 import { commonStyles } from "./../../common-styles";
+import COLORS from "./../../../colors";
 
 const HiddenRadio = styled.input`
   display: none;
@@ -11,10 +12,10 @@ const Radio = styled.div`
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: lightgray;
+  background-color: ${COLORS.lightgray};
   display: inline-block;
   ${HiddenRadio}:checked + & {
-    background-color: steelblue;
+    background-color: ${COLORS.darkgray};
   }
   ${HiddenRadio}:checked ~ &:after {
     content: "";
@@ -36,10 +37,10 @@ const Label = commonStyles(
     font-size: 0.8rem;
     cursor: pointer;
     &:hover > ${Radio} {
-      background-color: darkgray;
+      background-color: ${COLORS.darkgray};
     }
     &:hover > ${HiddenRadio}:checked + ${Radio} {
-      background-color: steelblue;
+      background-color: ${COLORS.darkgray};
     }
   `
 );

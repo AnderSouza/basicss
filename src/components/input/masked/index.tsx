@@ -23,7 +23,7 @@ export default (props: MaskedInputProps) => {
   const ref = useRef<HTMLInputElement>(null);
   const [pureValue, setPureValue] = useState(props.initial);
 
-  const onKeyDown = function <T>(e: React.KeyboardEvent<T>) {
+  const onKeyDown = function (e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key !== "Tab") e.preventDefault();
     let newValue = handleNewKey(e.key, pureValue, props.format);
     setPureValue(newValue);
@@ -52,12 +52,12 @@ export default (props: MaskedInputProps) => {
 
   const value = formatValue(pureValue, props.placeholder, props.mask);
 
-  const onClick = function <T>(e: MouseEvent<T>) {
+  const onClick = function (e: MouseEvent<HTMLInputElement>) {
     props.onClick && props.onClick(e);
     focus();
   };
 
-  const onFocus = function <T>(e: FocusEvent<T>) {
+  const onFocus = function (e: FocusEvent<HTMLInputElement>) {
     props.onFocus && props.onFocus(e);
     focus();
   };

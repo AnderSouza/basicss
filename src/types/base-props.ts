@@ -13,11 +13,11 @@ export interface BaseProps {
   style?: CSSProperties;
   children?: ReactChild | ReactChild[];
   innerRef?: RefObject<any>;
-  onClick?: <T>(e: MouseEvent<T>) => void;
-  onChange?: <T>(e: ChangeEvent<T>) => void;
-  onKeyDown?: <T>(e: KeyboardEvent<T>) => void;
-  onKeyUp?: <T>(e: KeyboardEvent<T>) => void;
-  onFocus?: <T>(e: FocusEvent<T>) => void;
-  onBlur?: <T>(e: FocusEvent<T>) => void;
-  onMouseOver?: <T>(e: MouseEvent<T>) => void;
+  onClick?: (e: MouseEvent<any>) => void;
+  onChange?: (e: ChangeEvent<any>) => void;
+  onKeyDown?: (e: KeyboardEvent<any>) => void;
+  onKeyUp?: (e: KeyboardEvent<any>) => void;
+  onFocus?: (e: FocusEvent<any>) => void;
+  onBlur?: (e: FocusEvent<any>) => void;
+  onMouseOver?: (e: MouseEvent<any>) => void;
 }
